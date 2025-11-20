@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  {% include head.html %}
+  <body class="site-body">
+    {% include navbar.html %}
+    <div id="bg-canvas" aria-hidden="true"></div>
+
+    <main id="main-content" class="container">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© {{ site.time | date: "%Y" }} {{ site.title }} · Built with Jekyll · <a href="https://github.com/{{ site.url | replace: 'https://', '' }}/">Source</a></p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js" integrity="" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+    <script src="/assets/js/three-bg.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
