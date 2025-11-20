@@ -1,4 +1,4 @@
-// Main page interactions: smooth scroll, simple GSAP reveal
+// Main page interactions: smooth scroll, GSAP reveal, and theme toggle persistence
 document.addEventListener('DOMContentLoaded', () => {
   // Smooth scroll for same-page anchors
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -17,6 +17,44 @@ document.addEventListener('DOMContentLoaded', () => {
         trigger: el,
         start: 'top 85%'
       }});
+    });
+  }
+
+  // Theme toggle logic
+  const THEME_KEY = 'theme';
+  const toggleBtn = document.getElementById('theme-toggle');
+  const iconSun = document.getElementById('icon-sun');
+  const iconMoon = document.getElementById('icon-moon');
+
+  function currentTheme() {
+    try {
+      return document.documentElement.getAttribute('data-theme') || localStorage.getItem(THEME_KEY) || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) { return 'dark'; }
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+    const isDark = theme === 'dark';
+    if (toggleBtn) toggleBtn.setAttribute('aria-pressed', (isDark).toString());
+    if (iconSun && iconMoon) {
+      iconSun.style.display = isDark ? 'none' : 'inline';
+      iconMoon.style.display = isDark ? 'inline' : 'none';
+    }
+  }
+
+  function toggleTheme() {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  }
+
+  // Initialize UI state for the toggle
+  applyTheme(currentTheme());
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleTheme();
     });
   }
 });

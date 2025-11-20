@@ -73,17 +73,6 @@ excerpt: "PhD student in Computer Science with a Physics background — building
   </div>
 </section>
 
-<section class="newsletter container">
-  <div class="subscribe-card">
-    <h3>Stay Updated</h3>
-    <p>Sign up for infrequent updates about preprints, talks, and major project releases.</p>
-    <form action="#" onsubmit="event.preventDefault(); alert('Replace with mailing-list integration (Mailchimp, Substack, etc.)')">
-      <input type="email" placeholder="you@institution.edu" required />
-      <button class="btn primary">Subscribe</button>
-    </form>
-  </div>
-</section>
-
 <section id="contact" class="contact container">
   <h2>Contact</h2>
   <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a> · ORCID: <a href="#">0000-0000-0000-0000</a> · GitHub: <a href="https://github.com/your-username">your-username</a></p>
