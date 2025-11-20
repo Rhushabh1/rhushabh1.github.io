@@ -1,8 +1,0 @@
-title: "PhD Portfolio — Your Name"
-email: "your.email@example.com"
-description: "PhD student in Computer Science with a Physics background — research, projects, publications, and talks."
-baseurl: "" # set to "/repo-name" if not user/organization site
-url: "https://your-username.github.io" # change for production
-theme: minima
-plugins: []
-markdown: kramdown
